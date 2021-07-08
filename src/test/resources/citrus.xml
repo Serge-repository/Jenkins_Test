@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Citrus" verbose="1">
+    <test name="Citrus_Test">
+        <classes>
+            <class name="citrus_ui.BasketTests"/>
+             <class name="citrus_ui.CompareProductsTests"/>
+             <class name="citrus_ui.FilterTests"/>
+        </classes>
+    </test>
+</suite>
+
