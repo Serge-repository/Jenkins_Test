@@ -113,13 +113,13 @@
 
                     <suiteXmlFiles>
                         <suiteXmlFile>
-                            src/test/resources/testng.xml
+                            src/main/resources/test_suites/testng.xml
                         </suiteXmlFile>
                         <suiteXmlFile>
-                            src/test/resources/api.xml
+                            src/main/resources/test_suites/api.xml
                         </suiteXmlFile>
                         <suiteXmlFile>
-                            src/test/resources/citrus.xml
+                            src/main/resources/test_suites/citrus.xml
                         </suiteXmlFile>
                     </suiteXmlFiles>
 
