@@ -111,17 +111,17 @@
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
 
-                    <suiteXmlFiles>
-                        <suiteXmlFile>
-                            src/main/resources/test_suites/testng.xml
-                        </suiteXmlFile>
-                        <suiteXmlFile>
-                            src/main/resources/test_suites/api.xml
-                        </suiteXmlFile>
-                        <suiteXmlFile>
-                            src/main/resources/test_suites/citrus.xml
-                        </suiteXmlFile>
-                    </suiteXmlFiles>
+<!--                    <suiteXmlFiles>-->
+<!--                        <suiteXmlFile>-->
+<!--                            src/main/resources/test_suites/testng.xml-->
+<!--                        </suiteXmlFile>-->
+<!--                        <suiteXmlFile>-->
+<!--                            src/main/resources/test_suites/api.xml-->
+<!--                        </suiteXmlFile>-->
+<!--                        <suiteXmlFile>-->
+<!--                            src/main/resources/test_suites/citrus.xml-->
+<!--                        </suiteXmlFile>-->
+<!--                    </suiteXmlFiles>-->
 
                 </configuration>
                 <dependencies>
