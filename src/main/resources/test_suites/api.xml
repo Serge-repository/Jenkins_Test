@@ -1,7 +1,8 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 
 <suite name="API" verbose="1">
-    <test name="Dummy_rest_api">
+    <parameter name="env" value="http://dummy.restapiexample.com"/>
+    <test name="api_develop">
         <classes>
             <class name="dummy_rest_api.ApiTests"/>
         </classes>

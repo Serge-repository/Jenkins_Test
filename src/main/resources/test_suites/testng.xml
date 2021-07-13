@@ -1,6 +1,7 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 
 <suite name="Regression" verbose="1">
+    <parameter name="env" value="https://www.citrus.ua/"/>
     <test name="Citrus">
         <classes>
             <class name="citrus_ui.BasketTests"/>
@@ -8,6 +9,7 @@
              <class name="citrus_ui.FilterTests"/>
         </classes>
     </test>
+    <parameter name="env" value="http://dummy.restapiexample.com"/>
     <test name="API">
         <classes>
             <class name="dummy_rest_api.ApiTests"/>

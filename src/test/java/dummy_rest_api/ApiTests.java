@@ -9,6 +9,7 @@ import io.restassured.RestAssured;
 import org.hamcrest.Matchers;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import utils.LogListener;
 
@@ -20,9 +21,10 @@ import static org.testng.Assert.assertEquals;
 
 @Listeners({LogListener.class})
 public class ApiTests {
+    @Parameters({"env"})
     @BeforeMethod
-    public void setup() {
-        RestAssured.baseURI = "http://dummy.restapiexample.com";
+    public void setup(final String env) {
+        RestAssured.baseURI = env;
     }
 
     @Test

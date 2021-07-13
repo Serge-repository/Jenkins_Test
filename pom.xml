@@ -71,24 +71,6 @@
         </dependency>
     </dependencies>
 
-    <profiles>
-        <profile>
-            <id>Staging</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <env>staging</env>
-            </properties>
-        </profile>
-        <profile>
-            <id>Develop</id>
-            <properties>
-                <env>dev</env>
-            </properties>
-        </profile>
-    </profiles>
-
     <build>
         <plugins>
             <plugin>
@@ -115,13 +97,6 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.1</version>
                 <configuration>
-
-                    <systemPropertyVariables>
-                        <property>
-                            <name>env</name>
-                            <value>${env}</value>
-                        </property>
-                    </systemPropertyVariables>
 
                     <testFailureIgnore>true</testFailureIgnore>
                     <argLine>
@@ -153,9 +128,6 @@
             </plugin>
         </plugins>
 
-        <filters>
-            <filter>src/main/resources/env/config.${env}.properties</filter>
-        </filters>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>

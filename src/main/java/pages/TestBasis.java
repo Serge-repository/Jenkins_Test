@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 
 import static com.codeborne.selenide.Selenide.open;
 
@@ -20,9 +21,10 @@ public class TestBasis {
         Configuration.timeout = 6000;
     }
 
+    @Parameters({"env"})
     @BeforeMethod
-    public void openWebsiteCleanStorage(){
-        open("https://www.citrus.ua/");
+    public void beforeMethod(final String env){
+        open(env);
         Selenide.clearBrowserLocalStorage();
         Selenide.clearBrowserCookies();
         waitForPageToBeFullyLoaded();
