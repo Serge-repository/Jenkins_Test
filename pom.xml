@@ -15,6 +15,24 @@
         <aspectj.version>1.9.5</aspectj.version>
     </properties>
 
+    <profiles>
+        <profile>
+            <id>HillelInt</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <env>int</env>
+            </properties>
+        </profile>
+        <profile>
+            <id>HillelQa</id>
+            <properties>
+                <env>qa</env>
+            </properties>
+        </profile>
+    </profiles>
+
     <dependencies>
         <dependency>
             <groupId>com.codeborne</groupId>
@@ -72,6 +90,22 @@
     </dependencies>
 
     <build>
+        <!--MAVEN PROFILES-->
+        <filters>
+            <!--suppress UnresolvedMavenProperty -->
+            <filter>src/main/resources/env/config.${env}.properties</filter>
+        </filters>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/*.properties</include>
+                </includes>
+            </resource>
+        </resources>
+        <!--MAVEN PROFILES-->
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -97,7 +131,6 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.1</version>
                 <configuration>
-
                     <testFailureIgnore>true</testFailureIgnore>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
@@ -127,17 +160,6 @@
                 </dependencies>
             </plugin>
         </plugins>
-
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-                <filtering>true</filtering>
-                <includes>
-                    <include>**/*.properties</include>
-                    <include>**/*.xml</include>
-                </includes>
-            </resource>
-        </resources>
 
     </build>
 

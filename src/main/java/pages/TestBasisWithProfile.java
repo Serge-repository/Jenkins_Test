@@ -1,0 +1,44 @@
+package pages;
+
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.WebDriverRunner;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import utils.PropertiesLoader;
+
+import java.io.IOException;
+
+import static com.codeborne.selenide.Selenide.open;
+
+public class TestBasisWithProfile {
+
+    @BeforeClass
+    public void configsSetup(){
+        Configuration.startMaximized = true;
+        Configuration.browser = "chrome";
+        Configuration.timeout = 6000;
+    }
+
+    @BeforeMethod
+    public void beforeMethod() throws IOException {
+        PropertiesLoader propertiesLoader = new PropertiesLoader();
+        open(propertiesLoader.getUrl("baseUrl"));
+
+        Selenide.clearBrowserLocalStorage();
+        Selenide.clearBrowserCookies();
+        waitForPageToBeFullyLoaded();
+    }
+
+    private void waitForPageToBeFullyLoaded(){
+        new WebDriverWait(WebDriverRunner.getWebDriver(), 10).until(
+                webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
+    }
+
+    public WebDriver getDriver() {
+        return WebDriverRunner.getWebDriver();
+    }
+}
