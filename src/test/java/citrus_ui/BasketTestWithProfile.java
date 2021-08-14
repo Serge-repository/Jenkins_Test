@@ -1,16 +1,18 @@
 package citrus_ui;
 
 import io.qameta.allure.*;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pages.TestBasisWithProfile;
 import steps.HomePageSteps;
 import steps.ProductListPageSteps;
 import steps.ProductPageSteps;
+import utils.TestListenerWithProfile;
 
 import static pages.enums.Phones.APPLE_PHONES;
 import static pages.enums.Phones.IPHONE_SE;
 
-//@Listeners({TestListener.class})
+@Listeners({TestListenerWithProfile.class})
 @Epic("Basket functionality")
 @Feature("Add to basket scenarios")
 public class BasketTestWithProfile extends TestBasisWithProfile {
